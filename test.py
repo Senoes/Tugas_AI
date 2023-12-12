@@ -3,7 +3,7 @@ import joblib as jb
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import time
+import time as tme
 
 
 rf = jb.load('./smoke-detection-rf.joblib')
