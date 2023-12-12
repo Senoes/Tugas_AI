@@ -3,8 +3,6 @@ import joblib as jb
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import time as tme
-
 
 rf = jb.load('./smoke-detection-rf.joblib')
 sc = jb.load('./standardscaler.joblib')
@@ -33,12 +31,10 @@ if st.button('Predict'):
         blink_green = '<p style="color:green;font-size:20px;display:inline-block">&#128994;</p>'
         blinking_icons = ' '.join([blink_green] * 3 )  
         st.markdown(blinking_icons, unsafe_allow_html=True)
-        time.sleep(2)  
         st.empty()    
     else:
         st.write('Prediksi Alarm Kebakaran = :red[ON]')
         blink_red = '<p style="color:red;font-size:20px;display:inline-block">&#128993;</p>'
         blinking_icons = ' '.join([blink_red] * 3 )  
         st.markdown(blinking_icons, unsafe_allow_html=True)
-        time.sleep(2)  
         st.empty()  
