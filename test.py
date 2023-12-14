@@ -13,6 +13,36 @@ st.header("Dataset")
 df1 = pd.read_csv('smoke_detection.csv')
 st.dataframe(df1)
 
+st.header('Grafik')
+
+st.write('Grafik Suhu[C]')
+chart_Temperature = df1["Temperature(C)"].head(208)
+st.bar_chart(chart_Temperature)
+
+st.write('Grafik Kelembapan[%]')
+chart_Humidity = df1["Humidity(%)"].head(208)
+st.bar_chart(chart_Humidity)
+
+st.write('Grafik TVOC[ppb]')
+chart_TVOC = df1["TVOC(ppb)"].head(208)
+st.line_chart(chart_TVOC)
+
+st.write('Grafik eCO2[ppm]')
+chart_eCO2 = df1["eCO2(ppm)"].head(208)
+st.line_chart(chart_eCO2)
+
+st.write('Grafik Raw Hidrogen')
+chart_RawH2 = df1["Raw H2"].head(208)
+st.bar_chart(chart_RawH2)
+
+st.write('Grafik Raw Ethanol')
+chart_Ethanol = df1["Raw Ethanol"].head(208)
+st.bar_chart(chart_Ethanol)
+
+st.write('Grafik Pressure(hPa)')
+chart_Pressure = df1["Pressure(hPa)"].head(208)
+st.bar_chart(chart_Pressure)
+
 st.header('Input Data')
 temp = st.number_input('Suhu[C]', value=20.0)
 hum = st.number_input('Kelembapan[%]', value=57.36)
