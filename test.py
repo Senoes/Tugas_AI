@@ -44,12 +44,12 @@ chart_Pressure = df1["Pressure(hPa)"].head(300)
 st.bar_chart(chart_Pressure)
 
 st.header('Input Data')
-temp = st.slider('Suhu[C]',20,200,20)
-hum = st.slider('Kelembapan[%]',1,100,1)
-tvoc = st.slider('TVOC[ppb]',0,1000,0)
-eco2 = st.slider('Kadar Oksigen[ppm]',400,450,400)
-h2 = st.slider('Hidrogen Sensor',12000,13000,12000)
-eth = st.slider('Ethanol Sensor',18000,20000,18000)
+temp = st.slider('Suhu[C]',-20,70,-20)
+hum = st.slider('Kelembapan[%]',10,75,10)
+tvoc = st.slider('TVOC[ppb]',0,62000,0)
+eco2 = st.slider('Kadar Oksigen[ppm]',400,53000,400)
+h2 = st.slider('Hidrogen Sensor',12000,14000,12000)
+eth = st.slider('Ethanol Sensor',18000,22000,18000)
 press = st.slider('Tekanan[hPa]',935000,940000,935000)
 
 if st.button('Predict'):
