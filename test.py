@@ -10,47 +10,47 @@ sc = jb.load('./standardscaler.joblib')
 st.title('Prediksi Kebakaran')
 st.header("Dataset")
 
-df1 = pd.read_csv('smoke_detection.csv')
+df1 = pd.read_csv('smoke_detection.csv').head(300)
 st.dataframe(df1)
 
 st.header('Grafik')
 
 st.write('Grafik Suhu[C]')
-chart_Temperature = df1["Temperature(C)"].head(208)
+chart_Temperature = df1["Temperature(C)"].head(300)
 st.bar_chart(chart_Temperature)
 
 st.write('Grafik Kelembapan[%]')
-chart_Humidity = df1["Humidity(%)"].head(208)
+chart_Humidity = df1["Humidity(%)"].head(300)
 st.bar_chart(chart_Humidity)
 
 st.write('Grafik TVOC[ppb]')
-chart_TVOC = df1["TVOC(ppb)"].head(208)
+chart_TVOC = df1["TVOC(ppb)"].head(300)
 st.line_chart(chart_TVOC)
 
 st.write('Grafik eCO2[ppm]')
-chart_eCO2 = df1["eCO2(ppm)"].head(208)
+chart_eCO2 = df1["eCO2(ppm)"].head(300)
 st.line_chart(chart_eCO2)
 
 st.write('Grafik Raw Hidrogen')
-chart_RawH2 = df1["Raw H2"].head(208)
+chart_RawH2 = df1["Raw H2"].head(300)
 st.bar_chart(chart_RawH2)
 
 st.write('Grafik Raw Ethanol')
-chart_Ethanol = df1["Raw Ethanol"].head(208)
+chart_Ethanol = df1["Raw Ethanol"].head(300)
 st.bar_chart(chart_Ethanol)
 
 st.write('Grafik Pressure(hPa)')
-chart_Pressure = df1["Pressure(hPa)"].head(208)
+chart_Pressure = df1["Pressure(hPa)"].head(300)
 st.bar_chart(chart_Pressure)
 
 st.header('Input Data')
-temp = st.number_input('Suhu[C]', value=20.0)
-hum = st.number_input('Kelembapan[%]', value=57.36)
-tvoc = st.number_input('TVOC[ppb]', value=0)
-eco2 = st.number_input('Kadar Oksigen[ppm]', value=400)
-h2 = st.number_input('Hidrogen Sensor', value=12306)
-eth = st.number_input('Ethanol Sensor', value=18520)
-press = st.number_input('Tekanan[hPa]', value=939.735)
+temp = st.slider('Suhu[C]',20,200,20)
+hum = st.slider('Kelembapan[%]',1,100,1)
+tvoc = st.slider('TVOC[ppb]',0,1000,0)
+eco2 = st.slider('Kadar Oksigen[ppm]',400,450,400)
+h2 = st.slider('Hidrogen Sensor',12000,13000,12000)
+eth = st.slider('Ethanol Sensor',18000,20000,18000)
+press = st.slider('Tekanan[hPa]',935000,940000,935000)
 
 if st.button('Predict'):
     data_input = np.array([[temp, hum, tvoc, eco2, h2, eth, press]])
